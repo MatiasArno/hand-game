@@ -14,10 +14,29 @@ export function initTextEl(){
 
         render() {
             const style = document.createElement("style");
+            const type = this.getAttribute("type") as "1" | "2";
+            const content = this.textContent as string;
 
-            style.innerHTML = ``;
+            style.innerHTML = `
+                * {
+                    font-family: 'Zilla Slab', serif;
+                }
 
-            this.shadow.innerHTML = ``;
+                .title {
+                    color: #009048;
+                    font-size: 80px;
+                    font-weight: 700;
+                }
+
+                .instructions {
+                    font-size: 40px;
+                    font-weight: 700;
+                }
+            `;
+
+            this.shadow.innerHTML = `
+                ${type == "1" ? `<h1 class="title">${content}</h1>` : `<p class="instructions">${content}</p>`}
+            `;
 
             this.shadow.appendChild(style);
         }

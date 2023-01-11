@@ -532,11 +532,145 @@ function hmrAcceptRun(bundle, id) {
 }
 
 },{}],"h7u1C":[function(require,module,exports) {
+var _welcome = require("./pages/welcome");
+var _button = require("./components/button");
+var _text = require("./components/text");
 function main() {
-    console.log("MAIN FUNCTION");
+    const root = document.querySelector(".root");
+    (0, _welcome.initWelcome)(root);
+    (0, _button.initButtonEl)();
+    (0, _text.initTextEl)();
 }
 main();
 
-},{}]},["iJYvl","h7u1C"], "h7u1C", "parcelRequire779d")
+},{"./pages/welcome":"fNSF3","./components/button":"dZaQH","./components/text":"6Xncd"}],"fNSF3":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "initWelcome", ()=>initWelcome);
+function initWelcome(root) {
+    root.innerHTML = `
+        <text-el type="1">Piedra Papel ó Tijera</text-el>
+        <button-el type="1"></button-el>
+    `;
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, "__esModule", {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
+
+},{}],"dZaQH":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "initButtonEl", ()=>initButtonEl);
+function initButtonEl() {
+    class Button extends HTMLElement {
+        shadow = this.attachShadow({
+            mode: "open"
+        });
+        constructor(){
+            super();
+        }
+        connectedCallback() {
+            this.render();
+        }
+        render() {
+            const style = document.createElement("style");
+            const btnType = this.getAttribute("type");
+            style.innerHTML = `
+                * {
+                    box-sizing: border-box;
+                }
+
+                .button {
+                    width: 324px;
+                    height: 90px;
+                    background-color: #006CFC;
+                    color: white;
+                    font-family: 'Odibee Sans', cursive;
+                    font-size: 45px;
+                    border: 10px solid #001997;
+                    line-height: 49.86px;
+                }
+            `;
+            this.shadow.innerHTML = `
+                <button class="button">${btnType == "1" ? "Empezar" : btnType == "2" ? "Jugar" : "Volver a Jugar"}</button>
+            `;
+            this.shadow.appendChild(style);
+        }
+    }
+    customElements.define("button-el", Button);
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6Xncd":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "initTextEl", ()=>initTextEl);
+function initTextEl() {
+    class Text extends HTMLElement {
+        shadow = this.attachShadow({
+            mode: "open"
+        });
+        constructor(){
+            super();
+        }
+        connectedCallback() {
+            this.render();
+        }
+        render() {
+            const style = document.createElement("style");
+            const type = this.getAttribute("type");
+            const content = this.textContent;
+            style.innerHTML = `
+                * {
+                    font-family: 'Zilla Slab', serif;
+                }
+
+                .title {
+                    color: #009048;
+                    font-size: 80px;
+                    font-weight: 700;
+                }
+
+                .instructions {
+                    font-size: 40px;
+                    font-weight: 700;
+                }
+            `;
+            this.shadow.innerHTML = `
+                ${type == "1" ? `<h1 class="title">${content}</h1>` : `<p class="instructions">${content}</p>`}
+            `;
+            this.shadow.appendChild(style);
+        }
+    }
+    customElements.define("text-el", Text);
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["iJYvl","h7u1C"], "h7u1C", "parcelRequire779d")
 
 //# sourceMappingURL=index.b71e74eb.js.map
