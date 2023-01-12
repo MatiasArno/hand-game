@@ -1,7 +1,16 @@
 export function initWelcome(root: HTMLElement) {
 
     root.innerHTML = `
-        <text-el type="1">Piedra Papel ó Tijera</text-el>
-        <button-el type="1"></button-el>
+        <div class="welcome-page">
+            <text-el type="1" class="title">Piedra Papel <span class="transparent-character">ó</span> Tijera</text-el>
+
+            <button-el type="1" class="start-btn"></button-el>
+
+            <div class="hands">
+                <hand-el type="scrissors"></hand-el>
+                <hand-el type="rock"></hand-el>
+                <hand-el type="paper"></hand-el>
+            </div>
+        </div>
     `;
 }

@@ -15,7 +15,7 @@ export function initTextEl(){
         render() {
             const style = document.createElement("style");
             const type = this.getAttribute("type") as "1" | "2";
-            const content = this.textContent as string;
+            const content = this.innerHTML as string;
 
             style.innerHTML = `
                 * {
@@ -23,12 +23,19 @@ export function initTextEl(){
                 }
 
                 .title {
+                    margin: 0 36px;
                     color: #009048;
                     font-size: 80px;
                     font-weight: 700;
                 }
 
+                    .transparent-character {
+                        color: #91CCAF;
+                    }
+
                 .instructions {
+                    margin: 0 36px;
+                    width: 100%;
                     font-size: 40px;
                     font-weight: 700;
                 }

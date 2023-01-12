@@ -535,22 +535,33 @@ function hmrAcceptRun(bundle, id) {
 var _welcome = require("./pages/welcome");
 var _button = require("./components/button");
 var _text = require("./components/text");
+var _hand = require("./components/hand");
 function main() {
     const root = document.querySelector(".root");
     (0, _welcome.initWelcome)(root);
     (0, _button.initButtonEl)();
     (0, _text.initTextEl)();
+    (0, _hand.initHandEl)();
 }
 main();
 
-},{"./pages/welcome":"fNSF3","./components/button":"dZaQH","./components/text":"6Xncd"}],"fNSF3":[function(require,module,exports) {
+},{"./pages/welcome":"fNSF3","./components/button":"dZaQH","./components/text":"6Xncd","./components/hand":"5jzIy"}],"fNSF3":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "initWelcome", ()=>initWelcome);
 function initWelcome(root) {
     root.innerHTML = `
-        <text-el type="1">Piedra Papel ó Tijera</text-el>
-        <button-el type="1"></button-el>
+        <div class="welcome-page">
+            <text-el type="1" class="title">Piedra Papel <span class="transparent-character">ó</span> Tijera</text-el>
+
+            <button-el type="1" class="start-btn"></button-el>
+
+            <div class="hands">
+                <hand-el type="scrissors"></hand-el>
+                <hand-el type="rock"></hand-el>
+                <hand-el type="paper"></hand-el>
+            </div>
+        </div>
     `;
 }
 
@@ -608,6 +619,7 @@ function initButtonEl() {
                 }
 
                 .button {
+                    margin: 0;
                     width: 324px;
                     height: 90px;
                     background-color: #006CFC;
@@ -615,6 +627,7 @@ function initButtonEl() {
                     font-family: 'Odibee Sans', cursive;
                     font-size: 45px;
                     border: 10px solid #001997;
+                    border-radius: 10px;
                     line-height: 49.86px;
                 }
             `;
@@ -645,19 +658,26 @@ function initTextEl() {
         render() {
             const style = document.createElement("style");
             const type = this.getAttribute("type");
-            const content = this.textContent;
+            const content = this.innerHTML;
             style.innerHTML = `
                 * {
                     font-family: 'Zilla Slab', serif;
                 }
 
                 .title {
+                    margin: 0 36px;
                     color: #009048;
                     font-size: 80px;
                     font-weight: 700;
                 }
 
+                    .transparent-character {
+                        color: #91CCAF;
+                    }
+
                 .instructions {
+                    margin: 0 36px;
+                    width: 100%;
                     font-size: 40px;
                     font-weight: 700;
                 }
@@ -671,6 +691,78 @@ function initTextEl() {
     customElements.define("text-el", Text);
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["iJYvl","h7u1C"], "h7u1C", "parcelRequire779d")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5jzIy":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "initHandEl", ()=>initHandEl);
+function initHandEl() {
+    class Hand extends HTMLElement {
+        shadow = this.attachShadow({
+            mode: "open"
+        });
+        constructor(){
+            super();
+        }
+        connectedCallback() {
+            this.render();
+        }
+        render() {
+            const style = document.createElement("style");
+            const type = this.getAttribute("type");
+            const rockURL = require("3edc87b4ed58f19d");
+            const paperURL = require("d671c9144a83e022");
+            const scissorsURL = require("7652c1930663e812");
+            style.innerHTML = ``;
+            this.shadow.innerHTML = `${type == "rock" ? `<img src="${rockURL}">` : type == "paper" ? `<img src="${paperURL}">` : `<img src="${scissorsURL}">`}`;
+            this.shadow.appendChild(style);
+        }
+    }
+    customElements.define("hand-el", Hand);
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","3edc87b4ed58f19d":"8UZlY","d671c9144a83e022":"eFWJl","7652c1930663e812":"cSWIZ"}],"8UZlY":[function(require,module,exports) {
+module.exports = require("bf9ec16cd2329525").getBundleURL("7UhFu") + "rock.68b75b8c.svg" + "?" + Date.now();
+
+},{"bf9ec16cd2329525":"lgJ39"}],"lgJ39":[function(require,module,exports) {
+"use strict";
+var bundleURL = {};
+function getBundleURLCached(id) {
+    var value = bundleURL[id];
+    if (!value) {
+        value = getBundleURL();
+        bundleURL[id] = value;
+    }
+    return value;
+}
+function getBundleURL() {
+    try {
+        throw new Error();
+    } catch (err) {
+        var matches = ("" + err.stack).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^)\n]+/g);
+        if (matches) // The first two stack frames will be this function and getBundleURLCached.
+        // Use the 3rd one, which will be a runtime in the original bundle.
+        return getBaseURL(matches[2]);
+    }
+    return "/";
+}
+function getBaseURL(url) {
+    return ("" + url).replace(/^((?:https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/.+)\/[^/]+$/, "$1") + "/";
+} // TODO: Replace uses with `new URL(url).origin` when ie11 is no longer supported.
+function getOrigin(url) {
+    var matches = ("" + url).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^/]+/);
+    if (!matches) throw new Error("Origin not found");
+    return matches[0];
+}
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+exports.getOrigin = getOrigin;
+
+},{}],"eFWJl":[function(require,module,exports) {
+module.exports = require("9f94d191e40358fc").getBundleURL("7UhFu") + "paper.a7359285.svg" + "?" + Date.now();
+
+},{"9f94d191e40358fc":"lgJ39"}],"cSWIZ":[function(require,module,exports) {
+module.exports = require("a389d8851adbc757").getBundleURL("7UhFu") + "scissors.97224c7d.svg" + "?" + Date.now();
+
+},{"a389d8851adbc757":"lgJ39"}]},["iJYvl","h7u1C"], "h7u1C", "parcelRequire779d")
 
 //# sourceMappingURL=index.b71e74eb.js.map

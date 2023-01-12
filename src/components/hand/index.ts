@@ -1,6 +1,6 @@
-export function initCounterEl(){
+export function initHandEl(){
     
-    class Counter extends HTMLElement {
+    class Hand extends HTMLElement {
 
         shadow = this.attachShadow({mode: 'open'});
 
@@ -14,14 +14,18 @@ export function initCounterEl(){
 
         render() {
             const style = document.createElement("style");
+            const type = this.getAttribute("type") as "rock" | "paper" | "scissors";
+            const rockURL = require("../../media/rock.svg");
+            const paperURL = require("../../media/paper.svg");
+            const scissorsURL = require("../../media/scissors.svg");
 
             style.innerHTML = ``;
 
-            this.shadow.innerHTML = ``;
+            this.shadow.innerHTML = `${type == "rock" ? `<img src="${rockURL}">` : type == "paper" ? `<img src="${paperURL}">` : `<img src="${scissorsURL}">`}`;
 
             this.shadow.appendChild(style);
         }
     }
 
-    customElements.define('counter-el', Counter);
+    customElements.define('hand-el', Hand);
 }

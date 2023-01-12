@@ -22,6 +22,7 @@ export function initButtonEl(){
                 }
 
                 .button {
+                    margin: 0;
                     width: 324px;
                     height: 90px;
                     background-color: #006CFC;
@@ -29,6 +30,7 @@ export function initButtonEl(){
                     font-family: 'Odibee Sans', cursive;
                     font-size: 45px;
                     border: 10px solid #001997;
+                    border-radius: 10px;
                     line-height: 49.86px;
                 }
             `;
