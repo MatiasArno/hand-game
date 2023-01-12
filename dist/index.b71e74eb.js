@@ -532,37 +532,64 @@ function hmrAcceptRun(bundle, id) {
 }
 
 },{}],"h7u1C":[function(require,module,exports) {
-var _welcome = require("./pages/welcome");
+var _routes = require("./routes");
 var _button = require("./components/button");
 var _text = require("./components/text");
 var _hand = require("./components/hand");
+var _counter = require("./components/counter");
 function main() {
     const root = document.querySelector(".root");
-    (0, _welcome.initWelcome)(root);
+    (0, _routes.initRouter)(root);
     (0, _button.initButtonEl)();
     (0, _text.initTextEl)();
     (0, _hand.initHandEl)();
+    (0, _counter.initCounterEl)();
 }
 main();
 
-},{"./pages/welcome":"fNSF3","./components/button":"dZaQH","./components/text":"6Xncd","./components/hand":"5jzIy"}],"fNSF3":[function(require,module,exports) {
+},{"./components/button":"dZaQH","./components/text":"6Xncd","./components/hand":"5jzIy","./routes":"cAFqI","./components/counter":"9ZXz4"}],"dZaQH":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "initWelcome", ()=>initWelcome);
-function initWelcome(root) {
-    root.innerHTML = `
-        <div class="welcome-page">
-            <text-el type="1" class="title">Piedra Papel <span class="transparent-character">ó</span> Tijera</text-el>
+parcelHelpers.export(exports, "initButtonEl", ()=>initButtonEl);
+function initButtonEl() {
+    class Button extends HTMLElement {
+        shadow = this.attachShadow({
+            mode: "open"
+        });
+        constructor(){
+            super();
+        }
+        connectedCallback() {
+            this.render();
+        }
+        render() {
+            const style = document.createElement("style");
+            const btnType = this.getAttribute("type");
+            style.innerHTML = `
+                * {
+                    box-sizing: border-box;
+                }
 
-            <button-el type="1" class="start-btn"></button-el>
-
-            <div class="hands">
-                <hand-el type="scrissors"></hand-el>
-                <hand-el type="rock"></hand-el>
-                <hand-el type="paper"></hand-el>
-            </div>
-        </div>
-    `;
+                .button {
+                    margin: 0;
+                    width: 330px;
+                    height: 90px;
+                    background-color: #006CFC;
+                    color: white;
+                    font-family: 'Odibee Sans', cursive;
+                    font-size: 45px;
+                    border: 10px solid #001997;
+                    border-radius: 10px;
+                    line-height: 49.86px;
+                }
+            `;
+            this.shadow.innerHTML = `
+                <button class="button">${btnType == "1" ? "Empezar" : btnType == "2" ? "Jugar" : "Volver a Jugar"}</button>
+            `;
+            this.shadow.appendChild(style);
+        }
+    }
+    customElements.define("button-el", Button);
 }
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
@@ -595,52 +622,7 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}],"dZaQH":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "initButtonEl", ()=>initButtonEl);
-function initButtonEl() {
-    class Button extends HTMLElement {
-        shadow = this.attachShadow({
-            mode: "open"
-        });
-        constructor(){
-            super();
-        }
-        connectedCallback() {
-            this.render();
-        }
-        render() {
-            const style = document.createElement("style");
-            const btnType = this.getAttribute("type");
-            style.innerHTML = `
-                * {
-                    box-sizing: border-box;
-                }
-
-                .button {
-                    margin: 0;
-                    width: 324px;
-                    height: 90px;
-                    background-color: #006CFC;
-                    color: white;
-                    font-family: 'Odibee Sans', cursive;
-                    font-size: 45px;
-                    border: 10px solid #001997;
-                    border-radius: 10px;
-                    line-height: 49.86px;
-                }
-            `;
-            this.shadow.innerHTML = `
-                <button class="button">${btnType == "1" ? "Empezar" : btnType == "2" ? "Jugar" : "Volver a Jugar"}</button>
-            `;
-            this.shadow.appendChild(style);
-        }
-    }
-    customElements.define("button-el", Button);
-}
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6Xncd":[function(require,module,exports) {
+},{}],"6Xncd":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "initTextEl", ()=>initTextEl);
@@ -662,10 +644,13 @@ function initTextEl() {
             style.innerHTML = `
                 * {
                     font-family: 'Zilla Slab', serif;
+                    margin: 0;
+                    padding: 0;
+                    box-sizing: border-box;
                 }
 
                 .title {
-                    margin: 0 36px;
+                    width: 330px;
                     color: #009048;
                     font-size: 80px;
                     font-weight: 700;
@@ -676,8 +661,8 @@ function initTextEl() {
                     }
 
                 .instructions {
-                    margin: 0 36px;
-                    width: 100%;
+                    width: 330px;
+                    height: 100%;
                     font-size: 40px;
                     font-weight: 700;
                 }
@@ -763,6 +748,156 @@ module.exports = require("9f94d191e40358fc").getBundleURL("7UhFu") + "paper.a735
 },{"9f94d191e40358fc":"lgJ39"}],"cSWIZ":[function(require,module,exports) {
 module.exports = require("a389d8851adbc757").getBundleURL("7UhFu") + "scissors.97224c7d.svg" + "?" + Date.now();
 
-},{"a389d8851adbc757":"lgJ39"}]},["iJYvl","h7u1C"], "h7u1C", "parcelRequire779d")
+},{"a389d8851adbc757":"lgJ39"}],"cAFqI":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "initRouter", ()=>initRouter);
+var _welcome = require("./pages/welcome");
+var _play = require("./pages/play");
+var _result = require("./pages/result");
+var _counter = require("./pages/counter");
+const routes = [
+    {
+        path: /\/welcome/,
+        handler: (0, _welcome.initWelcome)
+    },
+    {
+        path: /\/play/,
+        handler: (0, _play.initPlay)
+    },
+    {
+        path: /\/counter/,
+        handler: (0, _counter.initCounter)
+    },
+    {
+        path: /\/result/,
+        handler: (0, _result.initResult)
+    }
+];
+function initRouter(container) {
+    function goTo(path) {
+        history.pushState({}, "", path);
+        handleRoute(path);
+    }
+    function handleRoute(route) {
+        console.log(`handleRoute -->| ${route} |<--`);
+        for (const r of routes)if (r.path.test(route)) r.handler(container, goTo);
+    }
+    location.pathname == "/" ? goTo("/welcome") : handleRoute(location.pathname);
+    window.onpopstate = ()=>handleRoute(location.pathname);
+}
+
+},{"./pages/welcome":"fNSF3","./pages/result":"7wfLH","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./pages/play":"hbEIY","./pages/counter":"f1xoX"}],"fNSF3":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "initWelcome", ()=>initWelcome);
+function initWelcome(root, goTo) {
+    root.innerHTML = `
+        <div class="welcome-page">
+            <text-el type="1" class="title">Piedra Papel <span class="transparent-character">ó</span> Tijera</text-el>
+
+            <button-el type="1" class="start-btn"></button-el>
+
+            <div class="hands">
+                <hand-el type="scrissors"></hand-el>
+                <hand-el type="rock"></hand-el>
+                <hand-el type="paper"></hand-el>
+            </div>
+        </div>
+    `;
+    const startBtn = root.querySelector(".start-btn");
+    startBtn.addEventListener("click", ()=>goTo("/play"));
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7wfLH":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "initResult", ()=>initResult);
+function initResult(root) {
+    console.log("SOY RESULT PAGE");
+    console.log(root);
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hbEIY":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "initPlay", ()=>initPlay);
+function initPlay(root, goTo) {
+    root.innerHTML = `
+        <div class="play-page">
+            <text-el type="2" class="instructions">Presioná jugar y elegí: piedra, papel ó tijera antes de que pasen los tres segundos.</text-el>
+
+            <button-el type="2" class="play-btn"></button-el>
+
+            <div class="hands">
+                <hand-el type="scrissors"></hand-el>
+                <hand-el type="rock"></hand-el>
+                <hand-el type="paper"></hand-el>
+            </div>
+        </div>
+    `;
+    const startBtn = root.querySelector(".play-btn");
+    startBtn.addEventListener("click", ()=>goTo("/counter"));
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"f1xoX":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "initCounter", ()=>initCounter);
+function initCounter(root, goTo) {
+    root.innerHTML = `
+        <div class="counter-page">
+
+            <div class="counter">
+                <counter-el></counter-el>
+            </div>
+
+            <div class="hands">
+                <hand-el type="scrissors"></hand-el>
+                <hand-el type="rock"></hand-el>
+                <hand-el type="paper"></hand-el>
+            </div>            
+        </div>
+    `;
+// const startBtn = root.querySelector(".play-btn") as HTMLElement;
+// startBtn.addEventListener("click", () => goTo("/result"));
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9ZXz4":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "initCounterEl", ()=>initCounterEl);
+function initCounterEl() {
+    class Counter extends HTMLElement {
+        shadow = this.attachShadow({
+            mode: "open"
+        });
+        constructor(){
+            super();
+        }
+        connectedCallback() {
+            this.render();
+        }
+        render() {
+            const style = document.createElement("style");
+            style.innerHTML = `
+                * {
+                    margin: 0;
+                    box-sizing: border-box;
+                    font-family: 'Zilla Slab', serif;
+                }
+
+                .number {
+                    font-size: 216px;
+                }
+            `;
+            this.shadow.innerHTML = `<p class="number">1</p>`;
+            this.shadow.appendChild(style);
+        }
+    }
+    customElements.define("counter-el", Counter);
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["iJYvl","h7u1C"], "h7u1C", "parcelRequire779d")
 
 //# sourceMappingURL=index.b71e74eb.js.map

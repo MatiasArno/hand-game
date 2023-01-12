@@ -1,0 +1,16 @@
+.counter-page {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 3px dashed;
+}
+
+.counter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 3px dashed;
+}

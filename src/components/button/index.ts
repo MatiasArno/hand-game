@@ -23,7 +23,7 @@ export function initButtonEl(){
 
                 .button {
                     margin: 0;
-                    width: 324px;
+                    width: 330px;
                     height: 90px;
                     background-color: #006CFC;
                     color: white;

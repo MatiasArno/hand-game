@@ -1,15 +1,17 @@
-import { initWelcome } from "./pages/welcome";
+import { initRouter } from "./routes";
 import { initButtonEl } from "./components/button";
 import { initTextEl } from "./components/text";
 import { initHandEl } from "./components/hand";
+import { initCounterEl } from "./components/counter";
 
 function main() {
 
     const root = document.querySelector(".root") as HTMLElement;
-    initWelcome(root);
+    initRouter(root);
     initButtonEl();
     initTextEl();
     initHandEl();
+    initCounterEl();
 }
 
 main();

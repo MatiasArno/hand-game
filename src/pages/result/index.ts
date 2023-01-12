@@ -1,4 +1,5 @@
-export function initResult(params: any) {
+export function initResult(root: HTMLElement) {
 
-    console.log("RESULT PAGE");
+    console.log("SOY RESULT PAGE");
+    console.log(root);
 }

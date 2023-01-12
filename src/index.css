@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;700&display=swap');
+
 * {
     box-sizing: border-box;
 }
@@ -11,4 +14,6 @@ body {
 .root {
     width: 100%;
     height: 100%;
+    background-image: url("./media/background-image.png");
+    background-size: cover;
 }

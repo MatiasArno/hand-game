@@ -1,19 +1,24 @@
 import {initWelcome} from "./pages/welcome"; 
 import {initPlay} from "./pages/play"; 
 import {initResult} from "./pages/result"; 
+import {initCounter} from "./pages/counter"; 
 
 const routes = [
     {
         path: /\/welcome/,
-        component: initWelcome
+        handler: initWelcome
     },
     {
         path: /\/play/,
-        component: initPlay
+        handler: initPlay
+    },
+    {
+        path: /\/counter/,
+        handler: initCounter
     },
     {
         path: /\/result/,
-        component: initResult
+        handler: initResult
     }
 ];
 
@@ -28,19 +33,11 @@ export function initRouter(container: HTMLElement) {
     function handleRoute(route: string) {
     
         console.log(`handleRoute -->| ${route} |<--`);
-        console.log(`Ruta actual -->| ${location.pathname} |<--`);
     
         for(const r of routes) {
     
             if(r.path.test(route)) {
-
-                const el = r.component({goTo: goTo});
-    
-                if(container.firstChild) {
-                    container.firstChild.remove();
-                }
-    
-                container.appendChild(el);
+                r.handler(container, goTo);
             }
         }
     }

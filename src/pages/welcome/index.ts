@@ -1,4 +1,4 @@
-export function initWelcome(root: HTMLElement) {
+export function initWelcome(root: HTMLElement, goTo: any) {
 
     root.innerHTML = `
         <div class="welcome-page">
@@ -13,4 +13,7 @@ export function initWelcome(root: HTMLElement) {
             </div>
         </div>
     `;
+
+    const startBtn = root.querySelector(".start-btn") as HTMLElement;
+    startBtn.addEventListener("click", () => goTo("/play"));
 }

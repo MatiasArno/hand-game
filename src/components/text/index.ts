@@ -20,10 +20,13 @@ export function initTextEl(){
             style.innerHTML = `
                 * {
                     font-family: 'Zilla Slab', serif;
+                    margin: 0;
+                    padding: 0;
+                    box-sizing: border-box;
                 }
 
                 .title {
-                    margin: 0 36px;
+                    width: 330px;
                     color: #009048;
                     font-size: 80px;
                     font-weight: 700;
@@ -34,8 +37,8 @@ export function initTextEl(){
                     }
 
                 .instructions {
-                    margin: 0 36px;
-                    width: 100%;
+                    width: 330px;
+                    height: 100%;
                     font-size: 40px;
                     font-weight: 700;
                 }

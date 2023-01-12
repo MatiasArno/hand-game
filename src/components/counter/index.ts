@@ -15,9 +15,19 @@ export function initCounterEl(){
         render() {
             const style = document.createElement("style");
 
-            style.innerHTML = ``;
+            style.innerHTML = `
+                * {
+                    margin: 0;
+                    box-sizing: border-box;
+                    font-family: 'Zilla Slab', serif;
+                }
 
-            this.shadow.innerHTML = ``;
+                .number {
+                    font-size: 216px;
+                }
+            `;
+
+            this.shadow.innerHTML = `<p class="number">1</p>`;
 
             this.shadow.appendChild(style);
         }
