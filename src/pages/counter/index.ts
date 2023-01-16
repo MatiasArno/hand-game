@@ -1,20 +1,61 @@
+import { state } from "../../state";
+
 export function initCounter(root: HTMLElement, goTo: any) {
 
     root.innerHTML = `
         <div class="counter-page">
 
             <div class="counter">
-                <counter-el></counter-el>
             </div>
 
-            <div class="hands">
-                <hand-el type="scrissors"></hand-el>
-                <hand-el type="rock"></hand-el>
-                <hand-el type="paper"></hand-el>
+            <div class="counter-hands">
+                <hand-el class="hand" type="scissors"></hand-el>
+                <hand-el class="hand" type="rock"></hand-el>
+                <hand-el class="hand" type="paper"></hand-el>
             </div>            
         </div>
     `;
 
-    // const startBtn = root.querySelector(".play-btn") as HTMLElement;
-    // startBtn.addEventListener("click", () => goTo("/result"));
+    const counterEl = root.querySelector(".counter") as HTMLElement;
+    const handEls= root.querySelectorAll(".hand") as any;
+
+    (function changeCounter(n: number) {
+
+        let count = n;
+
+        counterEl.innerHTML = `<counter-el>${count}</counter-el>`;
+
+        const interval = setInterval(() => {
+            count--;
+            counterEl.innerHTML = `<counter-el>${count}</counter-el>`;
+
+            if(count < 1) {
+                clearInterval(interval);
+                goTo("/play");
+            }
+        }, 1000);
+    })(3);
+
+    function game(user: number) {
+        const machine = Math.round((Math.random() * 2) + 1);
+        if(machine == user) {
+            console.log(`Máquina ${machine} | Usuario ${user}`);
+            state.updateScore("draw", machine, user);
+        } else if(machine == 1 && user == 2 || machine == 2 && user == 3) {
+            console.log(`Máquina ${machine} | Usuario ${user}`);
+            state.updateScore("user-wins", machine, user);
+        } else {
+            console.log(`Máquina ${machine} | Usuario ${user}`);
+            state.updateScore("machine-wins", machine, user);
+        }
+
+        goTo("/game");
+    }
+
+    handEls.forEach((hand: any) => {
+        hand.addEventListener("click", () => {
+            const handAtt = hand.getAttribute("type") as string;
+            handAtt == "rock" ? game(1) : handAtt == "paper" ? game(2) : game(3);
+        });
+    });
 }

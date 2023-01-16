@@ -1,7 +1,8 @@
 import {initWelcome} from "./pages/welcome"; 
 import {initPlay} from "./pages/play"; 
-import {initResult} from "./pages/result"; 
 import {initCounter} from "./pages/counter"; 
+import {initGame} from "./pages/game";
+import {initResult} from "./pages/result"; 
 
 const routes = [
     {
@@ -15,6 +16,10 @@ const routes = [
     {
         path: /\/counter/,
         handler: initCounter
+    },
+    {
+        path: /\/game/,
+        handler: initGame
     },
     {
         path: /\/result/,

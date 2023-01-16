@@ -14,10 +14,12 @@ export function initCounterEl(){
 
         render() {
             const style = document.createElement("style");
+            const count = this.textContent as string;
 
             style.innerHTML = `
                 * {
                     margin: 0;
+                    padding: 0;
                     box-sizing: border-box;
                     font-family: 'Zilla Slab', serif;
                 }
@@ -25,10 +27,9 @@ export function initCounterEl(){
                 .number {
                     font-size: 216px;
                 }
-            `;
+            `;            
 
-            this.shadow.innerHTML = `<p class="number">1</p>`;
-
+            this.shadow.innerHTML = `<p class="number">${count}</p>`;       
             this.shadow.appendChild(style);
         }
     }

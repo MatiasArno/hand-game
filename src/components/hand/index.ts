@@ -19,9 +19,16 @@ export function initHandEl(){
             const paperURL = require("../../media/paper.svg");
             const scissorsURL = require("../../media/scissors.svg");
 
-            style.innerHTML = ``;
+            const counterStyle = `
+                .hand {
+                    width: 108px;
+                    heigth: 234px;
+                }
+            `;
 
-            this.shadow.innerHTML = `${type == "rock" ? `<img src="${rockURL}">` : type == "paper" ? `<img src="${paperURL}">` : `<img src="${scissorsURL}">`}`;
+            style.innerHTML = `${location.pathname == "/counter" ? `${counterStyle}` : ""}`;
+
+            this.shadow.innerHTML = `${type == "rock" ? `<img class="hand" src="${rockURL}">` : type == "paper" ? `<img class="hand" src="${paperURL}">` : `<img class="hand" src="${scissorsURL}">`}`;
 
             this.shadow.appendChild(style);
         }

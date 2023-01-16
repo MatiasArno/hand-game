@@ -697,8 +697,14 @@ function initHandEl() {
             const rockURL = require("3edc87b4ed58f19d");
             const paperURL = require("d671c9144a83e022");
             const scissorsURL = require("7652c1930663e812");
-            style.innerHTML = ``;
-            this.shadow.innerHTML = `${type == "rock" ? `<img src="${rockURL}">` : type == "paper" ? `<img src="${paperURL}">` : `<img src="${scissorsURL}">`}`;
+            const counterStyle = `
+                .hand {
+                    width: 108px;
+                    heigth: 234px;
+                }
+            `;
+            style.innerHTML = `${location.pathname == "/counter" ? `${counterStyle}` : ""}`;
+            this.shadow.innerHTML = `${type == "rock" ? `<img class="hand" src="${rockURL}">` : type == "paper" ? `<img class="hand" src="${paperURL}">` : `<img class="hand" src="${scissorsURL}">`}`;
             this.shadow.appendChild(style);
         }
     }
@@ -754,8 +760,9 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "initRouter", ()=>initRouter);
 var _welcome = require("./pages/welcome");
 var _play = require("./pages/play");
-var _result = require("./pages/result");
 var _counter = require("./pages/counter");
+var _game = require("./pages/game");
+var _result = require("./pages/result");
 const routes = [
     {
         path: /\/welcome/,
@@ -768,6 +775,10 @@ const routes = [
     {
         path: /\/counter/,
         handler: (0, _counter.initCounter)
+    },
+    {
+        path: /\/game/,
+        handler: (0, _game.initGame)
     },
     {
         path: /\/result/,
@@ -787,7 +798,7 @@ function initRouter(container) {
     window.onpopstate = ()=>handleRoute(location.pathname);
 }
 
-},{"./pages/welcome":"fNSF3","./pages/result":"7wfLH","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./pages/play":"hbEIY","./pages/counter":"f1xoX"}],"fNSF3":[function(require,module,exports) {
+},{"./pages/welcome":"fNSF3","./pages/result":"7wfLH","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./pages/play":"hbEIY","./pages/counter":"f1xoX","./pages/game":"c5SNR"}],"fNSF3":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "initWelcome", ()=>initWelcome);
@@ -813,10 +824,69 @@ function initWelcome(root, goTo) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "initResult", ()=>initResult);
-function initResult(root) {
-    console.log("SOY RESULT PAGE");
-    console.log(root);
+var _state = require("../../state");
+function initResult(root, goTo) {
+    const currentMatch = (0, _state.state).currentPlay.match;
+    const currentState = (0, _state.state).getState();
+    root.innerHTML = `
+        <div class="result">
+            <h1>${currentMatch == "draw" ? "Empate" : currentMatch == "user-wins" ? "Ganaste" : "Perdiste"}</h1>
+
+            <div class="score">
+                <h2>Score</h2>
+                <p>Vos: ${currentState.user}</p>
+                <p>Máquina: ${currentState.machine}</p>
+            </div>
+
+            <button-el type="3" class="playagain-btn"></button-el>
+        </div>
+    `;
+    const playAgainBtnEl = root.querySelector(".playagain-btn");
+    playAgainBtnEl.addEventListener("click", ()=>{
+        goTo("/play");
+    });
 }
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../../state":"1Yeju"}],"1Yeju":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "state", ()=>state);
+const state = {
+    data: {
+        machine: 0,
+        user: 0
+    },
+    currentPlay: {
+        machine: 0,
+        user: 0,
+        match: ""
+    },
+    listeners: [],
+    getState () {
+        return this.data;
+    },
+    setState (newState) {
+        console.log("STATE RECIEVED ==>| ", newState);
+        this.data = newState;
+        for (const cb of this.listeners)cb();
+    },
+    subscribe (callback) {
+        console.log(`CALLBACK SUBSCRIBED ==>| ${callback}`);
+        this.listeners.push(callback);
+    },
+    updateScore (match, machine, user) {
+        const currentState = this.getState();
+        if (match == "draw") {
+            currentState.machine++;
+            currentState.user++;
+        } else if (match == "user-wins") currentState.user++;
+        else if (match == "machine-wins") currentState.machine++;
+        this.currentPlay.machine = machine;
+        this.currentPlay.user = user;
+        this.currentPlay.match = match;
+        this.setState(currentState);
+    }
+};
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hbEIY":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -844,26 +914,76 @@ function initPlay(root, goTo) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "initCounter", ()=>initCounter);
+var _state = require("../../state");
 function initCounter(root, goTo) {
     root.innerHTML = `
         <div class="counter-page">
 
             <div class="counter">
-                <counter-el></counter-el>
             </div>
 
-            <div class="hands">
-                <hand-el type="scrissors"></hand-el>
-                <hand-el type="rock"></hand-el>
-                <hand-el type="paper"></hand-el>
+            <div class="counter-hands">
+                <hand-el class="hand" type="scissors"></hand-el>
+                <hand-el class="hand" type="rock"></hand-el>
+                <hand-el class="hand" type="paper"></hand-el>
             </div>            
         </div>
     `;
-// const startBtn = root.querySelector(".play-btn") as HTMLElement;
-// startBtn.addEventListener("click", () => goTo("/result"));
+    const counterEl = root.querySelector(".counter");
+    const handEls = root.querySelectorAll(".hand");
+    (function changeCounter(n) {
+        let count = n;
+        counterEl.innerHTML = `<counter-el>${count}</counter-el>`;
+        const interval = setInterval(()=>{
+            count--;
+            counterEl.innerHTML = `<counter-el>${count}</counter-el>`;
+            if (count < 1) {
+                clearInterval(interval);
+                goTo("/play");
+            }
+        }, 1000);
+    })(3);
+    function game(user) {
+        const machine = Math.round(Math.random() * 2 + 1);
+        if (machine == user) {
+            console.log(`Máquina ${machine} | Usuario ${user}`);
+            (0, _state.state).updateScore("draw", machine, user);
+        } else if (machine == 1 && user == 2 || machine == 2 && user == 3) {
+            console.log(`Máquina ${machine} | Usuario ${user}`);
+            (0, _state.state).updateScore("user-wins", machine, user);
+        } else {
+            console.log(`Máquina ${machine} | Usuario ${user}`);
+            (0, _state.state).updateScore("machine-wins", machine, user);
+        }
+        goTo("/game");
+    }
+    handEls.forEach((hand)=>{
+        hand.addEventListener("click", ()=>{
+            const handAtt = hand.getAttribute("type");
+            handAtt == "rock" ? game(1) : handAtt == "paper" ? game(2) : game(3);
+        });
+    });
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9ZXz4":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../../state":"1Yeju"}],"c5SNR":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "initGame", ()=>initGame);
+var _state = require("../../state");
+function initGame(root, goTo) {
+    function renderGameResult(machine, user) {
+        root.innerHTML = `
+            <div class="play-page">
+                <hand-el class="hand" type="${machine == 1 ? "rock" : machine == 2 ? "paper" : "scissors"}"></hand-el>
+                <hand-el class="hand" type="${user == 1 ? "rock" : user == 2 ? "paper" : "scissors"}"></hand-el>
+            </div>
+        `;
+        setTimeout(()=>goTo("/result"), 3000);
+    }
+    (0, _state.state).subscribe(()=>renderGameResult((0, _state.state).currentPlay.machine, (0, _state.state).currentPlay.user));
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../../state":"1Yeju"}],"9ZXz4":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "initCounterEl", ()=>initCounterEl);
@@ -880,9 +1000,11 @@ function initCounterEl() {
         }
         render() {
             const style = document.createElement("style");
+            const count = this.textContent;
             style.innerHTML = `
                 * {
                     margin: 0;
+                    padding: 0;
                     box-sizing: border-box;
                     font-family: 'Zilla Slab', serif;
                 }
@@ -891,7 +1013,7 @@ function initCounterEl() {
                     font-size: 216px;
                 }
             `;
-            this.shadow.innerHTML = `<p class="number">1</p>`;
+            this.shadow.innerHTML = `<p class="number">${count}</p>`;
             this.shadow.appendChild(style);
         }
     }
