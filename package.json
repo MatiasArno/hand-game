@@ -4,7 +4,7 @@
   "description": "Off line rock, paper and scissors game.",
   "scripts": {
     "dev": "parcel serve ./src/index.html",
-    "build": "parcel build ./src/index.html --dist-dir build",
+    "build": "parcel build ./src/index.html --dist-dir build --public-url /hand-game",
     "deploy": "gh-pages -d build"
   },
   "author": "Arno Matias",
@@ -12,5 +12,8 @@
   "devDependencies": {
     "@types/node": "^18.11.18",
     "parcel": "^2.8.2"
+  },
+  "dependencies": {
+    "gh-pages": "^4.0.0"
   }
 }
