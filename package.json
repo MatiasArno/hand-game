@@ -2,10 +2,10 @@
   "name": "hand-game",
   "version": "1.0.0",
   "description": "Off line rock, paper and scissors game.",
-  "main": "index.js",
   "scripts": {
     "dev": "parcel serve ./src/index.html",
-    "build": "parcel build ./src/index.html"
+    "build": "parcel build ./src/index.html --dist-dir build",
+    "deploy": "gh-pages -d dist"
   },
   "author": "Arno Matias",
   "license": "ISC",
