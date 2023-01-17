@@ -54,6 +54,7 @@ export function initRouter(container: HTMLElement) {
         }
     }
 
-    location.pathname == "/" ? goTo("/welcome") : handleRoute(location.pathname);
+    const CURRENT_PATH = isGithubPages() ? BASE_PATH + "/" : "/"
+    location.pathname == CURRENT_PATH ? goTo("/welcome") : handleRoute(location.pathname);
     window.onpopstate = () => handleRoute(location.pathname);
 }
