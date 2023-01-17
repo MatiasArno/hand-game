@@ -17,7 +17,8 @@ export function initCounter(root: HTMLElement, goTo: any) {
     `;
 
     const counterEl = root.querySelector(".counter") as HTMLElement;
-    const handEls= root.querySelectorAll(".hand") as any;
+    const handEls = root.querySelectorAll(".hand") as any;
+    let interval: any;
 
     (function changeCounter(n: number) {
 
@@ -25,7 +26,7 @@ export function initCounter(root: HTMLElement, goTo: any) {
 
         counterEl.innerHTML = `<counter-el>${count}</counter-el>`;
 
-        const interval = setInterval(() => {
+        interval = setInterval(() => {
             count--;
             counterEl.innerHTML = `<counter-el>${count}</counter-el>`;
 
@@ -49,6 +50,7 @@ export function initCounter(root: HTMLElement, goTo: any) {
             state.updateScore("machine-wins", machine, user);
         }
 
+        clearInterval(interval);
         goTo("/game");
     }
 

@@ -931,10 +931,11 @@ function initCounter(root, goTo) {
     `;
     const counterEl = root.querySelector(".counter");
     const handEls = root.querySelectorAll(".hand");
+    let interval;
     (function changeCounter(n) {
         let count = n;
         counterEl.innerHTML = `<counter-el>${count}</counter-el>`;
-        const interval = setInterval(()=>{
+        interval = setInterval(()=>{
             count--;
             counterEl.innerHTML = `<counter-el>${count}</counter-el>`;
             if (count < 1) {
@@ -955,6 +956,7 @@ function initCounter(root, goTo) {
             console.log(`Máquina ${machine} | Usuario ${user}`);
             (0, _state.state).updateScore("machine-wins", machine, user);
         }
+        clearInterval(interval);
         goTo("/game");
     }
     handEls.forEach((hand)=>{
