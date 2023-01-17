@@ -802,7 +802,9 @@ function initRouter(container) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "initWelcome", ()=>initWelcome);
+var _state = require("../../state");
 function initWelcome(root, goTo) {
+    (0, _state.state).init();
     root.innerHTML = `
         <div class="welcome-page">
             <text-el type="1" class="title">Piedra Papel <span class="transparent-character">ó</span> Tijera</text-el>
@@ -820,6 +822,54 @@ function initWelcome(root, goTo) {
     startBtn.addEventListener("click", ()=>goTo("/play"));
 }
 
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../../state":"1Yeju"}],"1Yeju":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "state", ()=>state);
+const state = {
+    data: {
+        machine: 0,
+        user: 0
+    },
+    currentPlay: {
+        machine: 0,
+        user: 0,
+        match: ""
+    },
+    listeners: [],
+    init () {
+        const storedState = localStorage.getItem("state");
+        storedState == null ? console.log("No stored data to render...") : this.setState(JSON.parse(storedState));
+    },
+    getState () {
+        return this.data;
+    },
+    setState (newState) {
+        console.log("STATE RECIEVED ==>| ", newState);
+        this.data = newState;
+        localStorage.setItem("state", JSON.stringify(newState));
+        for (const cb of this.listeners)cb();
+    },
+    subscribe (callback) {
+        console.log(`CALLBACK SUBSCRIBED ==>| ${callback}`);
+        this.listeners.push(callback);
+    },
+    updateScore (match, machine, user) {
+        const currentState = this.getState();
+        if (match == "draw") {
+            currentState.machine++;
+            currentState.user++;
+        } else if (match == "user-wins") currentState.user++;
+        else if (match == "machine-wins") currentState.machine++;
+        this.currentPlay = {
+            machine: machine,
+            user: user,
+            match: match
+        };
+        this.setState(currentState);
+    }
+};
+
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7wfLH":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
@@ -828,6 +878,7 @@ var _state = require("../../state");
 function initResult(root, goTo) {
     const currentMatch = (0, _state.state).currentPlay.match;
     const currentState = (0, _state.state).getState();
+    console.log("CURRENT STATE DE RESULT", currentState);
     root.innerHTML = `
         <div class="result">
             <h1>${currentMatch == "draw" ? "Empate" : currentMatch == "user-wins" ? "Ganaste" : "Perdiste"}</h1>
@@ -847,48 +898,7 @@ function initResult(root, goTo) {
     });
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../../state":"1Yeju"}],"1Yeju":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "state", ()=>state);
-const state = {
-    data: {
-        machine: 0,
-        user: 0
-    },
-    currentPlay: {
-        machine: 0,
-        user: 0,
-        match: ""
-    },
-    listeners: [],
-    getState () {
-        return this.data;
-    },
-    setState (newState) {
-        console.log("STATE RECIEVED ==>| ", newState);
-        this.data = newState;
-        for (const cb of this.listeners)cb();
-    },
-    subscribe (callback) {
-        console.log(`CALLBACK SUBSCRIBED ==>| ${callback}`);
-        this.listeners.push(callback);
-    },
-    updateScore (match, machine, user) {
-        const currentState = this.getState();
-        if (match == "draw") {
-            currentState.machine++;
-            currentState.user++;
-        } else if (match == "user-wins") currentState.user++;
-        else if (match == "machine-wins") currentState.machine++;
-        this.currentPlay.machine = machine;
-        this.currentPlay.user = user;
-        this.currentPlay.match = match;
-        this.setState(currentState);
-    }
-};
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hbEIY":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../../state":"1Yeju"}],"hbEIY":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "initPlay", ()=>initPlay);
@@ -949,7 +959,7 @@ function initCounter(root, goTo) {
         if (machine == user) {
             console.log(`Máquina ${machine} | Usuario ${user}`);
             (0, _state.state).updateScore("draw", machine, user);
-        } else if (machine == 1 && user == 2 || machine == 2 && user == 3) {
+        } else if (machine == 1 && user == 2 || machine == 2 && user == 3 || machine == 3 && user == 1) {
             console.log(`Máquina ${machine} | Usuario ${user}`);
             (0, _state.state).updateScore("user-wins", machine, user);
         } else {

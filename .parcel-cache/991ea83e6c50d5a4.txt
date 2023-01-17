@@ -15,7 +15,7 @@
 118C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\node_modules\@parcel\utils\src\getCertificate.js133167925854542296 0
 114C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\node_modules\@parcel\workers\src\Profiler.js133167925855566376 0
 114C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\node_modules\caniuse-lite\data\regions\SZ.js133167925880503870 0
-74C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\dist133184251625228041 1
+74C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\dist133184294688422949 1
 114C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\node_modules\caniuse-lite\data\regions\AF.js133167925851438725 0
 111C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\node_modules\svgo\plugins\cleanupAttrs.js133167925851388722 0
 97C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\node_modules\yaml\README.md133167925859152920 0
@@ -119,7 +119,7 @@
 113C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\node_modules\@jridgewell\source-map\LICENSE133167925844464045 0
 133C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\node_modules\dom-serializer\node_modules\entities\lib\encode.js133167925847688424 0
 97C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\node_modules\supports-color133184236853951297 1
-82C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\src\state.ts133183718668797446 0
+82C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\src\state.ts133184266611888995 0
 113C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\node_modules\@parcel\watcher\src\DirTree.cc133167925849708576 0
 122C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\node_modules\@parcel\packager-raw\lib\RawPackager.js133167925845824153 0
 109C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\node_modules\@parcel\core\lib\worker.js133167925866178397 0
@@ -193,7 +193,7 @@
 104C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\node_modules\safe-buffer\README.md133167925847538396 0
 101C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\node_modules\@parcel\source-map133184236870442662 1
 106C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\node_modules\@lezer\lr\dist\index.js133167925848228454 0
-96C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\src\pages\welcome\index.ts133180258635548888 0
+96C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\src\pages\welcome\index.ts133184294676055512 0
 112C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\node_modules\lmdb\dependencies\lz4\lib\dll133184236890697866 1
 93C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\node_modules\color-name133184236851613119 1
 114C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\node_modules\caniuse-lite\data\regions\UY.js133167925881556864 0
@@ -205,7 +205,7 @@
 126C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\node_modules\type-fest\source\union-to-intersection.d.ts133167925857154223 0
 112C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\node_modules\csso\lib\restructure\index.js133167925856462022 0
 98C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\src\components\text\index.ts133180274558148363 0
-95C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\src\pages\result\index.ts133183725957189224 0
+95C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\src\pages\result\index.ts133184292518792878 0
 131C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\node_modules\caniuse-lite\data\features\css-default-pseudo.js133167925865617321 0
 118C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\node_modules\caniuse-lite\data\regions\alt-sa.js133167925854642299 0
 127C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\node_modules\@parcel\transformer-html\lib\dependencies.js133167925845804240 0
@@ -215,7 +215,7 @@
 101C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\node_modules\@types\node\stream133184237190981629 1
 135C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\node_modules\@parcel\node-resolver-core\test\fixture\node_modules133184237042996718 1
 97C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\node_modules\terser\main.js133167925857565409 0
-96C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\src\pages\counter\index.ts133184251581630729 0
+96C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\src\pages\counter\index.ts133184267509457004 0
 116C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\node_modules\dom-serializer\lib\index.d.ts.map133167925851818744 0
 101C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\node_modules\chrome-trace-event133184236856021464 1
 114C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\node_modules\caniuse-lite\data\regions\FR.js133167925871808208 0
@@ -992,7 +992,7 @@
 121C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\node_modules\htmlnano\docs\docs\010-introduction.md133167925858571676 0
 105C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\node_modules\json5\lib\unicode.d.ts133167925854282277 0
 99C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\node_modules\clone\.npmignore133167925845524294 0
-93C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\dist\index.61d3354a.css133184246203797931 0
+93C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\dist\index.61d3354a.css133184294686277456 0
 114C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\node_modules\update-browserslist-db\utils.js133167925848158462 0
 112C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\node_modules\electron-to-chromium\index.js133167925849428558 0
 100C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\node_modules\type-fest\license133167925844604053 0
@@ -3148,7 +3148,7 @@
 117C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\node_modules\caniuse-lite\data\features\menu.js133167925875653008 0
 109C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\node_modules\@parcel\runtime-js\LICENSE133167925846024172 0
 129C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\node_modules\caniuse-lite\data\features\meta-theme-color.js133167925875703016 0
-92C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\dist\index.b71e74eb.js133184251625188078 0
+92C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\dist\index.b71e74eb.js133184294687312862 0
 118C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\node_modules\caniuse-lite\data\features\meter.js133167925875733018 0
 126C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\node_modules\caniuse-lite\data\features\web-animation.js133167925881968049 0
 124C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\node_modules\@parcel\core\src\requests\EntryRequest.js133167925860335853 0
@@ -3289,7 +3289,7 @@
 119C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\node_modules\caniuse-lite\data\features\webnfc.js133167925882419063 0
 123C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\node_modules\caniuse-lite\data\features\websockets.js133167925882459072 0
 125C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\node_modules\caniuse-lite\data\features\webtransport.js133167925882479069 0
-104C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\dist\background-image.ecccf0a9.png133184246205288058 0
+104C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\dist\background-image.ecccf0a9.png133184294686652841 0
 123C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\node_modules\@parcel\core\src\requests\PathRequest.js133167925863675948 0
 118C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\node_modules\caniuse-lite\data\features\webvr.js133167925882509075 0
 119C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\node_modules\caniuse-lite\data\features\webvtt.js133167925882529072 0
@@ -3924,7 +3924,7 @@
 111C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\node_modules\@parcel\package-manager\test133184237030268196 1
 126C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\node_modules\@parcel\package-manager\test\fixtures\empty133184237031648327 1
 165C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\node_modules\@parcel\node-resolver-core\test\fixture\node_modules\package-fallback\package.json133167925862716058 0
-97C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\dist\index.61d3354a.css.map133184246204237956 0
+97C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\dist\index.61d3354a.css.map133184294686492800 0
 128C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\node_modules\@parcel\package-manager\test\fixtures\has-foo133184237030628288 1
 137C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\node_modules\@parcel\package-manager\test\fixtures\packages\foo-2.0133184237032998207 1
 167C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\node_modules\@parcel\node-resolver-core\test\fixture\node_modules\side-effects-false\package.json133167925863143982 0
@@ -4293,7 +4293,7 @@
 134C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\node_modules\@babel\helper-validator-identifier\lib\index.js.map133167925849408547 0
 132C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\node_modules\@babel\helper-validator-identifier\lib\keyword.js133167925850068608 0
 113C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\node_modules\@babel\code-frame\package.json133167925847478405 0
-93C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\dist\paper.a7359285.svg133184246205758087 0
+93C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\dist\paper.a7359285.svg133184294688302941 0
 110C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\node_modules\@babel\code-frame\README.md133167925845394119 0
 93C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\node_modules\.bin\acorn133167925883720825 0
 97C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\node_modules\.bin\acorn.cmd133167925883720825 0
@@ -4321,15 +4321,15 @@
 111C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\node_modules\.bin\node-gyp-build-test.ps1133167925883720825 0
 98C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\node_modules\.bin\parcel.cmd133167925883740839 0
 94C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\node_modules\.bin\semver133167925883772502 0
-96C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\dist\scissors.97224c7d.svg133184246204137964 0
+96C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\dist\scissors.97224c7d.svg133184294688342955 0
 98C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\node_modules\.bin\semver.ps1133167925883772502 0
 96C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\node_modules\.bin\svgo.cmd133167925883730834 0
-93C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\dist\index.5f31bc04.css133184246203787935 0
-97C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\dist\index.5f31bc04.css.map133184246204237956 0
-96C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\dist\index.b71e74eb.js.map133184251625218057 0
-93C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\dist\index.cc007474.css133184246205258042 0
-97C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\dist\index.cc007474.css.map133184246205368061 0
-93C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\dist\index.d3e1acc3.css133184246205258042 0
-97C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\dist\index.d3e1acc3.css.map133184246205368061 0
-85C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\dist\index.html133184246204127969 0
-92C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\dist\rock.68b75b8c.svg133184246204127969 0
+93C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\dist\index.5f31bc04.css133184294686287379 0
+97C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\dist\index.5f31bc04.css.map133184294686492800 0
+96C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\dist\index.b71e74eb.js.map133184294687372865 0
+93C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\dist\index.cc007474.css133184294686349076 0
+97C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\dist\index.cc007474.css.map133184294686502996 0
+93C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\dist\index.d3e1acc3.css133184294686337377 0
+97C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\dist\index.d3e1acc3.css.map133184294686502996 0
+85C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\dist\index.html133184254624171680 0
+92C:\Users\marno\Desktop\Arno\Programacion\APX\5-modulo-cinco\hand-game\dist\rock.68b75b8c.svg133184294688332980 0

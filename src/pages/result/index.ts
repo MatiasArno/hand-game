@@ -4,6 +4,7 @@ export function initResult(root: HTMLElement, goTo: any) {
 
     const currentMatch = state.currentPlay.match;
     const currentState = state.getState();
+    console.log("CURRENT STATE DE RESULT", currentState);
 
     root.innerHTML = `
         <div class="result">

@@ -13,6 +13,11 @@ const state = {
 
     listeners: [],
 
+    init(){
+        const storedState = localStorage.getItem('state') as string;
+        storedState == null ? console.log("No stored data to render...") : this.setState(JSON.parse(storedState));
+    },
+
     getState() {
         return this.data;
     },
@@ -20,6 +25,7 @@ const state = {
     setState(newState: Object) {
         console.log("STATE RECIEVED ==>| ", newState);
         this.data = newState;
+        localStorage.setItem('state', JSON.stringify(newState));
 
         for(const cb of this.listeners) {
             cb();                           
@@ -43,9 +49,12 @@ const state = {
             currentState.machine++;
         }
 
-        this.currentPlay.machine = machine;
-        this.currentPlay.user = user;
-        this.currentPlay.match = match;
+        this.currentPlay = {
+            machine: machine,
+            user: user,
+            match: match
+        }
+
         this.setState(currentState);
     }
 };

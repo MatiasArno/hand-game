@@ -1,4 +1,8 @@
+import { state } from "../../state";
+
 export function initWelcome(root: HTMLElement, goTo: any) {
+
+    state.init();
 
     root.innerHTML = `
         <div class="welcome-page">

@@ -42,7 +42,7 @@ export function initCounter(root: HTMLElement, goTo: any) {
         if(machine == user) {
             console.log(`Máquina ${machine} | Usuario ${user}`);
             state.updateScore("draw", machine, user);
-        } else if(machine == 1 && user == 2 || machine == 2 && user == 3) {
+        } else if(machine == 1 && user == 2 || machine == 2 && user == 3 || machine == 3 && user == 1) {
             console.log(`Máquina ${machine} | Usuario ${user}`);
             state.updateScore("user-wins", machine, user);
         } else {
