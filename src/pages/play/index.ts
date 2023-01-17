@@ -6,7 +6,7 @@ export function initPlay(root: HTMLElement, goTo: any) {
 
             <button-el type="2" class="play-btn"></button-el>
 
-            <div class="hands">
+            <div class="play-hands">
                 <hand-el type="scrissors"></hand-el>
                 <hand-el type="rock"></hand-el>
                 <hand-el type="paper"></hand-el>

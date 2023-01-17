@@ -23,10 +23,12 @@
         margin: 0 0 72px 0;
     }
 
-    .hands {
-        width: 100%;
+    .welcome-hands {
+        width: 360px;
+        height: 130px;
         display: flex;
         justify-content: space-evenly;
         position: absolute;
         bottom: 0px;
+        overflow: hidden;
     }

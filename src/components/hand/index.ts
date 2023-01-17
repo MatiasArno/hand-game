@@ -19,14 +19,20 @@ export function initHandEl(){
             const paperURL = require("../../media/paper.svg");
             const scissorsURL = require("../../media/scissors.svg");
 
-            const counterStyle = `
+            const defaultStyle = `
+
+                * {
+                    margin: 0;
+                    padding: 0;
+                    box-sizing: border-box;
+                }
+
                 .hand {
-                    width: 108px;
-                    heigth: 234px;
+                    height: 100%;
                 }
             `;
 
-            style.innerHTML = `${location.pathname == "/counter" ? `${counterStyle}` : ""}`;
+            style.innerHTML = `${location.pathname != "/game" ? `${defaultStyle}` : ""}`;
 
             this.shadow.innerHTML = `${type == "rock" ? `<img class="hand" src="${rockURL}">` : type == "paper" ? `<img class="hand" src="${paperURL}">` : `<img class="hand" src="${scissorsURL}">`}`;
 

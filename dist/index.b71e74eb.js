@@ -697,13 +697,19 @@ function initHandEl() {
             const rockURL = require("3edc87b4ed58f19d");
             const paperURL = require("d671c9144a83e022");
             const scissorsURL = require("7652c1930663e812");
-            const counterStyle = `
+            const defaultStyle = `
+
+                * {
+                    margin: 0;
+                    padding: 0;
+                    box-sizing: border-box;
+                }
+
                 .hand {
-                    width: 108px;
-                    heigth: 234px;
+                    height: 100%;
                 }
             `;
-            style.innerHTML = `${location.pathname == "/counter" ? `${counterStyle}` : ""}`;
+            style.innerHTML = `${location.pathname != "/game" ? `${defaultStyle}` : ""}`;
             this.shadow.innerHTML = `${type == "rock" ? `<img class="hand" src="${rockURL}">` : type == "paper" ? `<img class="hand" src="${paperURL}">` : `<img class="hand" src="${scissorsURL}">`}`;
             this.shadow.appendChild(style);
         }
@@ -811,7 +817,7 @@ function initWelcome(root, goTo) {
 
             <button-el type="1" class="start-btn"></button-el>
 
-            <div class="hands">
+            <div class="welcome-hands">
                 <hand-el type="scrissors"></hand-el>
                 <hand-el type="rock"></hand-el>
                 <hand-el type="paper"></hand-el>
@@ -880,13 +886,13 @@ function initResult(root, goTo) {
     const currentState = (0, _state.state).getState();
     console.log("CURRENT STATE DE RESULT", currentState);
     root.innerHTML = `
-        <div class="result">
-            <h1>${currentMatch == "draw" ? "Empate" : currentMatch == "user-wins" ? "Ganaste" : "Perdiste"}</h1>
+        <div class="result result-${currentMatch}">
+            <h1 class="result-title result-title-${currentMatch}">${currentMatch == "draw" ? "Empate" : currentMatch == "user-wins" ? "Ganaste" : "Perdiste"}</h1>
 
             <div class="score">
-                <h2>Score</h2>
-                <p>Vos: ${currentState.user}</p>
-                <p>Máquina: ${currentState.machine}</p>
+                <h2 class="score-title">Score</h2>
+                <p class="score-text">Vos: ${currentState.user}</p>
+                <p class="score-text">Máquina: ${currentState.machine}</p>
             </div>
 
             <button-el type="3" class="playagain-btn"></button-el>
@@ -909,7 +915,7 @@ function initPlay(root, goTo) {
 
             <button-el type="2" class="play-btn"></button-el>
 
-            <div class="hands">
+            <div class="play-hands">
                 <hand-el type="scrissors"></hand-el>
                 <hand-el type="rock"></hand-el>
                 <hand-el type="paper"></hand-el>
@@ -933,14 +939,14 @@ function initCounter(root, goTo) {
             </div>
 
             <div class="counter-hands">
-                <hand-el class="hand" type="scissors"></hand-el>
-                <hand-el class="hand" type="rock"></hand-el>
-                <hand-el class="hand" type="paper"></hand-el>
+                <hand-el class="counter-hand" type="scissors"></hand-el>
+                <hand-el class="counter-hand" type="rock"></hand-el>
+                <hand-el class="counter-hand" type="paper"></hand-el>
             </div>            
         </div>
     `;
     const counterEl = root.querySelector(".counter");
-    const handEls = root.querySelectorAll(".hand");
+    const handEls = root.querySelectorAll(".counter-hand");
     let interval;
     (function changeCounter(n) {
         let count = n;
@@ -985,9 +991,13 @@ var _state = require("../../state");
 function initGame(root, goTo) {
     function renderGameResult(machine, user) {
         root.innerHTML = `
-            <div class="play-page">
-                <hand-el class="hand" type="${machine == 1 ? "rock" : machine == 2 ? "paper" : "scissors"}"></hand-el>
-                <hand-el class="hand" type="${user == 1 ? "rock" : user == 2 ? "paper" : "scissors"}"></hand-el>
+            <div class="game-page">
+                <div class="machine-hand">
+                    <hand-el type="${machine == 1 ? "rock" : machine == 2 ? "paper" : "scissors"}"></hand-el>                
+                </div>
+                <div class="user-hand">
+                    <hand-el type="${user == 1 ? "rock" : user == 2 ? "paper" : "scissors"}"></hand-el>
+                </div>
             </div>
         `;
         setTimeout(()=>goTo("/result"), 3000);

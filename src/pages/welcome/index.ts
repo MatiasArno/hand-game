@@ -10,7 +10,7 @@ export function initWelcome(root: HTMLElement, goTo: any) {
 
             <button-el type="1" class="start-btn"></button-el>
 
-            <div class="hands">
+            <div class="welcome-hands">
                 <hand-el type="scrissors"></hand-el>
                 <hand-el type="rock"></hand-el>
                 <hand-el type="paper"></hand-el>

@@ -9,15 +9,15 @@ export function initCounter(root: HTMLElement, goTo: any) {
             </div>
 
             <div class="counter-hands">
-                <hand-el class="hand" type="scissors"></hand-el>
-                <hand-el class="hand" type="rock"></hand-el>
-                <hand-el class="hand" type="paper"></hand-el>
+                <hand-el class="counter-hand" type="scissors"></hand-el>
+                <hand-el class="counter-hand" type="rock"></hand-el>
+                <hand-el class="counter-hand" type="paper"></hand-el>
             </div>            
         </div>
     `;
 
     const counterEl = root.querySelector(".counter") as HTMLElement;
-    const handEls = root.querySelectorAll(".hand") as any;
+    const handEls = root.querySelectorAll(".counter-hand") as any;
     let interval: any;
 
     (function changeCounter(n: number) {
