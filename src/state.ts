@@ -11,7 +11,7 @@ const state = {
         match: ""
     },
 
-    listeners: [],
+    // listeners: [],
 
     init(){
         const storedState = localStorage.getItem('state') as string;
@@ -27,15 +27,16 @@ const state = {
         this.data = newState;
         localStorage.setItem('state', JSON.stringify(newState));
 
-        for(const cb of this.listeners) {
-            cb();                           
-        }
+        // for(const cb of this.listeners) {
+        //     cb();                           
+        // }
     },
 
-    subscribe(callback: (any: any) => any) {
-        console.log(`CALLBACK SUBSCRIBED ==>| ${callback}`);
-        this.listeners.push(callback);
-    },
+    // subscribe(callback: (any: any) => any) {
+    //     console.log(`CALLBACK SUBSCRIBED ==>| ${callback}`);
+    //     console.log(this.listeners, "TOTAL LISTENERS");
+    //     this.listeners.push(callback);
+    // },
 
     updateScore(match: string, machine: number, user: number) {
         const currentState = this.getState();

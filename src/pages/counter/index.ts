@@ -40,13 +40,10 @@ export function initCounter(root: HTMLElement, goTo: any) {
     function game(user: number) {
         const machine = Math.round((Math.random() * 2) + 1);
         if(machine == user) {
-            console.log(`Máquina ${machine} | Usuario ${user}`);
             state.updateScore("draw", machine, user);
         } else if(machine == 1 && user == 2 || machine == 2 && user == 3 || machine == 3 && user == 1) {
-            console.log(`Máquina ${machine} | Usuario ${user}`);
             state.updateScore("user-wins", machine, user);
         } else {
-            console.log(`Máquina ${machine} | Usuario ${user}`);
             state.updateScore("machine-wins", machine, user);
         }
 

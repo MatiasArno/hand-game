@@ -43,7 +43,7 @@ export function initRouter(container: HTMLElement) {
 
     function handleRoute(route: string) {
     
-        console.log(`handleRoute -->| ${route} |<--`);
+        console.log(`handleRoute recieved -->| ${route} |<--`);
         const newRoute = isGithubPages() ? route.replace(BASE_PATH, "") : route;
     
         for(const r of routes) {

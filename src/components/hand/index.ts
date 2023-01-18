@@ -19,8 +19,7 @@ export function initHandEl(){
             const paperURL = require("../../media/paper.svg");
             const scissorsURL = require("../../media/scissors.svg");
 
-            const defaultStyle = `
-
+            style.innerHTML = `
                 * {
                     margin: 0;
                     padding: 0;
@@ -31,8 +30,6 @@ export function initHandEl(){
                     height: 100%;
                 }
             `;
-
-            style.innerHTML = `${location.pathname != "/game" ? `${defaultStyle}` : ""}`;
 
             this.shadow.innerHTML = `${type == "rock" ? `<img class="hand" src="${rockURL}">` : type == "paper" ? `<img class="hand" src="${paperURL}">` : `<img class="hand" src="${scissorsURL}">`}`;
 
